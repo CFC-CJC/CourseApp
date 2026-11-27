@@ -11,8 +11,9 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class DBHelper extends SQLiteOpenHelper {
 
     public DBHelper(Context ctx) {
-        // 库文件叫 course.db，版本先写 1
-        super(ctx, "course.db", null, 1);
+        // 库文件叫 course.db，加了上课时间这一列以后版本改成 2，
+        // 这样手机上已经装过旧版的，一升级就会重建表，不会报没有 time 列
+        super(ctx, "course.db", null, 2);
     }
 
     @Override
@@ -22,12 +23,14 @@ public class DBHelper extends SQLiteOpenHelper {
                 + " account TEXT PRIMARY KEY,"
                 + " password TEXT NOT NULL)");
 
-        // 课程表：课程编号、课程名、任课老师、上课地点（没有学分了）
+        // 课程表：课程编号、课程名、任课老师、上课地点、上课时间（没有学分了）
+        // 上课时间存的是"周一下午第1节、周三上午第2节"这种，一门课有几次就写几段，中间用顿号隔开
         db.execSQL("CREATE TABLE course ("
                 + " course_no TEXT PRIMARY KEY,"
                 + " course_name TEXT NOT NULL,"
                 + " teacher TEXT,"
-                + " place TEXT)");
+                + " place TEXT,"
+                + " time TEXT)");
 
         // 第一次建库先塞两个账号，不然没账号可登
         db.execSQL("INSERT INTO user (account, password) VALUES ('admin', '123456')");

@@ -145,15 +145,16 @@ public class MainActivity extends Activity {
             item.put("cname", cur.getString(cur.getColumnIndex("course_name")));
             item.put("tea", cur.getString(cur.getColumnIndex("teacher")));
             item.put("place", cur.getString(cur.getColumnIndex("place")));
+            item.put("time", cur.getString(cur.getColumnIndex("time")));
             list.add(item);
         }
         cur.close();
         db.close();
         SimpleAdapter adapter = new SimpleAdapter(this, list,
                 R.layout.item_course,
-                new String[]{"cno", "cname", "tea", "place"},
+                new String[]{"cno", "cname", "tea", "place", "time"},
                 new int[]{R.id.item_no, R.id.item_name, R.id.item_teacher,
-                        R.id.item_place});
+                        R.id.item_place, R.id.item_time});
         lvCourse.setAdapter(adapter);
     }
 }

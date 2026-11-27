@@ -61,6 +61,63 @@
         android:inputType="text"
         android:textSize="16sp" />
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="上课时间（一周可以有好几次，选好点下面的按钮加进去）"
+        android:textSize="14sp"
+        android:layout_marginTop="12dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="4dp">
+
+        <Spinner
+            android:id="@+id/spWeek"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2" />
+
+        <Spinner
+            android:id="@+id/spJie"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnAddTime"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="加到时间里"
+            android:textSize="12sp" />
+
+        <Button
+            android:id="@+id/btnClearTime"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="清空时间"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvTimes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="还没有加时间，可以不加"
+        android:textSize="13sp"
+        android:textColor="#666666"
+        android:layout_marginTop="4dp" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
